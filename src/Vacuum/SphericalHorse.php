@@ -52,13 +52,15 @@ class SphericalHorse extends LiveCreature
         return $diff;
     }
 
-    protected function changeHealthAndEnergyActive($consumedFood) {
+    protected function changeHealthAndEnergyActive($consumedFood)
+    {
         $energy = 4 - $consumedFood;
         $this->energy -= $energy;
         $this->health += min($consumedFood * $energy, 100 - $this->health);
     }
 
-    protected function changeHealthAndEnergySleeping($consumedFood) {
+    protected function changeHealthAndEnergySleeping($consumedFood)
+    {
         $energy = 0.5 * $consumedFood;
         $this->energy += $energy;
         $this->health += min($consumedFood * $energy, 100 - $this->health);
