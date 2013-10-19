@@ -54,7 +54,6 @@ abstract class LiveCreature implements IThing, ICreature
             $this->state = self::STATE_DEAD;
             return;
         }
-//        echo "Sleep: ".$this->sleep."\n";
         if ($this->sleep > 0) {
             $this->sleep--;
             $this->thinkHealthSleeping();
