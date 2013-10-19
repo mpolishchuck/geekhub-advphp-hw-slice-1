@@ -9,12 +9,12 @@ class SphericalHorse extends LiveCreature
     protected function thinkHealthActive()
     {
         $diff = 0;
-        if($this->bellyful > 30) {
+        if ($this->bellyful > 30) {
             $diff += (($this->bellyful - 30) / 70) * 10;
         } else {
             $diff -= $this->bellyful / 6;
         }
-        if($this->energy > 20) {
+        if ($this->energy > 20) {
             $diff += (($this->energy - 20) / 80) * 10;
         } else {
             $diff -= $this->energy / 4;
@@ -25,12 +25,12 @@ class SphericalHorse extends LiveCreature
     protected function thinkHealthSleeping()
     {
         $diff = 0;
-        if($this->bellyful > 30) {
+        if ($this->bellyful > 30) {
             $diff += (($this->bellyful - 30) / 70) * 15;
         } else {
             $diff -= $this->bellyful / 12;
         }
-        if($this->energy > 20) {
+        if ($this->energy > 20) {
             $diff += (($this->energy - 20) / 80) * 15;
         } else {
             $diff -= $this->energy / 8;

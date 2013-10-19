@@ -5,7 +5,7 @@ AutoLoader::register();
 $animal = new \Vacuum\SphericalHorse();
 
 $i = 0;
-while(true) {
+while (true) {
     printf(
         "%3d. Health: %.1f; Bellyful: %.1f; Energy: %.1f - %s, %s\n",
         ++$i,
