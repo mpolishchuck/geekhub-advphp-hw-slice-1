@@ -48,14 +48,14 @@ abstract class LiveCreature implements IThing, ICreature
 
     public function think()
     {
-        if($this->isDead())
+        if ($this->isDead())
             return;
-        if($this->health <= 0) {
+        if ($this->health <= 0) {
             $this->state = self::STATE_DEAD;
             return;
         }
 //        echo "Sleep: ".$this->sleep."\n";
-        if($this->sleep > 0) {
+        if ($this->sleep > 0) {
             $this->sleep--;
             $this->thinkHealthSleeping();
             $this->changeHealthAndEnergySleeping($this->consumeBellyfulSleeping());
@@ -63,7 +63,7 @@ abstract class LiveCreature implements IThing, ICreature
             $this->thinkHealthActive();
             $this->changeHealthAndEnergyActive($this->consumeBellyfulActive());
         }
-        if(($this->energy < 20) * !$this->isSleeping())
+        if (($this->energy < 20) * !$this->isSleeping())
             $this->addSleep(30);
     }
 
