@@ -15,7 +15,7 @@ while (true) {
         $animal->isSleeping() ? 'Sleeping' : 'Active',
         $animal->isAlive() ? 'Still alive' : 'Dead'
     );
-    if($animal->isDead())
+    if ($animal->isDead())
         break;
     $animal->think();
     sleep(1);
