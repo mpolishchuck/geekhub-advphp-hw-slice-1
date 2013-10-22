@@ -3,12 +3,12 @@
 namespace Home;
 
 /**
- * Class IPet
+ * Class PetInterface
  * @package Home
  *
  * Interface for pet
  */
-interface IPet
+interface PetInterface
 {
     public function __construct($name);
 

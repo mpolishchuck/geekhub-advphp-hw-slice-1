@@ -2,7 +2,7 @@
 
 namespace Home;
 
-use Nature\Creatures\PetCreature;
+use Nature\Creatures\AbstractPetCreature;
 
 /**
  * Class SphericalCat
@@ -10,7 +10,7 @@ use Nature\Creatures\PetCreature;
  *
  * Spherical home pet called 'Cat'
  */
-class SphericalCat extends PetCreature
+class SphericalCat extends AbstractPetCreature
 {
     protected function thinkHealthActive()
     {

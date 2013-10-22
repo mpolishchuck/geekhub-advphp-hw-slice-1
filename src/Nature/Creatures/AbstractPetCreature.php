@@ -2,15 +2,15 @@
 
 namespace Nature\Creatures;
 
-use Home\IPet;
+use Home\PetInterface;
 
 /**
- * Class PetCreature
+ * Class AbstractPetCreature
  * @package Nature\Creatures
  *
  * This is abstract class for pet
  */
-abstract class PetCreature extends LiveCreature implements IPet
+abstract class AbstractPetCreature extends AbstractLiveCreature implements PetInterface
 {
     protected $name;
     protected $mood = 50;
