@@ -3,7 +3,7 @@
 namespace Home;
 
 /**
- * Class PetInterface
+ * Interface PetInterface
  * @package Home
  *
  * Interface for pet
