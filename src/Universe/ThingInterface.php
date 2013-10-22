@@ -2,7 +2,7 @@
 
 namespace Universe;
 
-interface IThing
+interface ThingInterface
 {
     public function think();
 }

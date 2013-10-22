@@ -2,9 +2,9 @@
 
 namespace Vacuum;
 
-use Nature\Creatures\LiveCreature;
+use Nature\Creatures\AbstractLiveCreature;
 
-class SphericalHorse extends LiveCreature
+class SphericalHorse extends AbstractLiveCreature
 {
     protected function thinkHealthActive()
     {
