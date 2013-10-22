@@ -9,13 +9,28 @@ use Home\PetInterface;
  * @package Nature\Creatures
  *
  * This is abstract class for pet
+ * Pet can do anything that can do any creature
+ * Also pet can play, eat and have a mood property
  */
 abstract class AbstractPetCreature extends AbstractLiveCreature implements PetInterface
 {
+    /**
+     * @var string the name of the pet
+     */
     protected $name;
+    /**
+     * @var float the mood of the pet
+     */
     protected $mood = 50;
+    /**
+     * @var int number of steps to complete playing
+     */
     protected $playing = 0;
 
+    /**
+     * Creates new pet with specified name
+     * @param string $name pet's name
+     */
     public function __construct($name)
     {
         $this->name = $name;
@@ -50,8 +65,8 @@ abstract class AbstractPetCreature extends AbstractLiveCreature implements PetIn
     }
 
     /**
-     * Play with pet
-     * @param integer $duration
+     * Start playing with pet
+     * @param integer $duration number of steps to play
      */
     public function play($duration)
     {
@@ -67,10 +82,14 @@ abstract class AbstractPetCreature extends AbstractLiveCreature implements PetIn
         return ($this->playing > 0);
     }
 
+    /**
+     * Run life one step of pet's life process
+     */
     public function think()
     {
-        if ($this->isDead())
+        if ($this->isDead()) {
             return;
+        }
         if (!$this->isSleeping()) {
             if ($this->playing > 0) {
                 $this->playing--;
@@ -86,7 +105,13 @@ abstract class AbstractPetCreature extends AbstractLiveCreature implements PetIn
         parent::think();
     }
 
+    /**
+     * Change pet's mood and energy in 'playing' state
+     */
     abstract protected function changeMoodAndEnergyPlaying();
 
+    /**
+     * Change pet's mood and energy in 'idle' state
+     */
     abstract protected function changeMoodAndEnergyIdle();
 }

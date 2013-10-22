@@ -4,8 +4,17 @@ namespace Vacuum;
 
 use Nature\Creatures\AbstractLiveCreature;
 
+/**
+ * Class SphericalHorse
+ * @package Vacuum
+ *
+ * Implementation of spherical horse in the vacuum
+ */
 class SphericalHorse extends AbstractLiveCreature
 {
+    /**
+     * Changing health of spherical horse in 'active' state
+     */
     protected function thinkHealthActive()
     {
         $diff = 0;
@@ -22,6 +31,9 @@ class SphericalHorse extends AbstractLiveCreature
         $this->health += min($diff, 100 - $this->health);
     }
 
+    /**
+     * Changing health of spherical horse in 'sleeping' state
+     */
     protected function thinkHealthSleeping()
     {
         $diff = 0;
@@ -38,6 +50,10 @@ class SphericalHorse extends AbstractLiveCreature
         $this->health += min($diff, 100 - $this->health);
     }
 
+    /**
+     * Spherical horse consumes bellyful in 'active' state
+     * @return float amount of bellyful consumed
+     */
     protected function consumeBellyfulActive()
     {
         $diff = $this->bellyful / 25;
@@ -45,6 +61,10 @@ class SphericalHorse extends AbstractLiveCreature
         return $diff;
     }
 
+    /**
+     * Spherical horse consumes bellyful in 'sleeping' state
+     * @return float amount of bellyful consumed
+     */
     protected function consumeBellyfulSleeping()
     {
         $diff = $this->bellyful / 50;
@@ -52,17 +72,25 @@ class SphericalHorse extends AbstractLiveCreature
         return $diff;
     }
 
-    protected function changeHealthAndEnergyActive($consumedFood)
+    /**
+     * By consumed bellyful health and energy of spherical horse changes in 'active' state
+     * @param float $consumedBellyful
+     */
+    protected function changeHealthAndEnergyActive($consumedBellyful)
     {
-        $energy = 4 - $consumedFood;
+        $energy = 4 - $consumedBellyful;
         $this->energy -= $energy;
-        $this->health += min($consumedFood * $energy, 100 - $this->health);
+        $this->health += min($consumedBellyful * $energy, 100 - $this->health);
     }
 
-    protected function changeHealthAndEnergySleeping($consumedFood)
+    /**
+     * By consumed bellyful health and energy of spherical horse changes in 'sleeping' state
+     * @param float $consumedBellyful
+     */
+    protected function changeHealthAndEnergySleeping($consumedBellyful)
     {
-        $energy = 0.5 * $consumedFood;
+        $energy = 0.5 * $consumedBellyful;
         $this->energy += $energy;
-        $this->health += min($consumedFood * $energy, 100 - $this->health);
+        $this->health += min($consumedBellyful * $energy, 100 - $this->health);
     }
 }
