@@ -2,7 +2,7 @@
 
 namespace Universe;
 
-interface ILifeForm
+interface LifeFormInterface
 {
     public function isAlive();
 

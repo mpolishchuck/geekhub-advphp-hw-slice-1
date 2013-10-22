@@ -2,10 +2,10 @@
 
 namespace Nature\Creatures;
 
-use Universe\ICreature;
-use Universe\IThing;
+use Universe\CreatureInterface;
+use Universe\ThingInterface;
 
-abstract class LiveCreature implements IThing, ICreature
+abstract class AbstractLiveCreature implements ThingInterface, CreatureInterface
 {
     const STATE_ALIVE = __LINE__;
     const STATE_DEAD  = __LINE__;

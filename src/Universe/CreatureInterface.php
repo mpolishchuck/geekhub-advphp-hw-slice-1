@@ -2,7 +2,7 @@
 
 namespace Universe;
 
-interface ICreature extends ILifeForm
+interface CreatureInterface extends LifeFormInterface
 {
     public function getHealth();
 
