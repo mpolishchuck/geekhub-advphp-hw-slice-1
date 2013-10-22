@@ -103,10 +103,12 @@ abstract class AbstractLiveCreature implements ThingInterface, CreatureInterface
      */
     public function think()
     {
-        if ($this->isDead())
+        if ($this->isDead()) {
             return;
+        }
         if ($this->health <= 0) {
             $this->state = self::STATE_DEAD;
+
             return;
         }
         if ($this->sleep > 0) {

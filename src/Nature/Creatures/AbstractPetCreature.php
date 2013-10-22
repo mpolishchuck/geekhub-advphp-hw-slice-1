@@ -87,8 +87,9 @@ abstract class AbstractPetCreature extends AbstractLiveCreature implements PetIn
      */
     public function think()
     {
-        if ($this->isDead())
+        if ($this->isDead()) {
             return;
+        }
         if (!$this->isSleeping()) {
             if ($this->playing > 0) {
                 $this->playing--;
