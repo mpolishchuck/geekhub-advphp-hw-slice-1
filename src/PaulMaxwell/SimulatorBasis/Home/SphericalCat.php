@@ -1,8 +1,8 @@
 <?php
 
-namespace Home;
+namespace PaulMaxwell\SimulatorBasis\Home;
 
-use Nature\Creatures\AbstractPetCreature;
+use PaulMaxwell\SimulatorBasis\Nature\Creatures\AbstractPetCreature;
 
 /**
  * Class SphericalCat

@@ -1,7 +1,7 @@
 <?php
 require '../vendor/autoload.php';
 
-$animal = new \Home\SphericalCat('Fluffy');
+$animal = new \PaulMaxwell\SimulatorBasis\Home\SphericalCat('Fluffy');
 
 $i = 0;
 while (true) {

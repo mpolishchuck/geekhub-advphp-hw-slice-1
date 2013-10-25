@@ -1,8 +1,8 @@
 <?php
 
-namespace Vacuum;
+namespace PaulMaxwell\SimulatorBasis\Vacuum;
 
-use Nature\Creatures\AbstractLiveCreature;
+use PaulMaxwell\SimulatorBasis\Nature\Creatures\AbstractLiveCreature;
 
 /**
  * Class SphericalHorse

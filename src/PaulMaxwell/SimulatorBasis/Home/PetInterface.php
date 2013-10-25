@@ -1,6 +1,6 @@
 <?php
 
-namespace Home;
+namespace PaulMaxwell\SimulatorBasis\Home;
 
 /**
  * Interface PetInterface

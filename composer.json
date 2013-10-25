@@ -1,10 +1,7 @@
 {
     "autoload" : {
         "psr-0" : {
-            "Home\\" : "src/",
-            "Nature\\" : "src/",
-            "Universe\\" : "src/",
-            "Vacuum\\" : "src/"
+            "PaulMaxwell\\" : "src/"
         }
     }
 }

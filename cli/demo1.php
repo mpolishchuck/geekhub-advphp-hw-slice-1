@@ -1,7 +1,7 @@
 <?php
 require '../vendor/autoload.php';
 
-$animal = new \Vacuum\SphericalHorse();
+$animal = new \PaulMaxwell\SimulatorBasis\Vacuum\SphericalHorse();
 
 $i = 0;
 while (true) {
