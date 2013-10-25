@@ -1,6 +1,5 @@
 <?php
-include '../src/AutoLoader.php';
-AutoLoader::register();
+require '../vendor/autoload.php';
 
 $animal = new \Home\SphericalCat('Fluffy');
 
