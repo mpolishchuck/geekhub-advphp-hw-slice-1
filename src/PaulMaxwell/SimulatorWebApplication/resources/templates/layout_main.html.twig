@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>The virtual ZooBox</title>
+        <link rel="stylesheet" href="static/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="static/css/zoobox.css">
+        <script type="text/javascript" src="static/js/jquery.min.js"></script>
+        <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                {% block head_buttons %}
+                <a class="pull-right btn btn-success" style="margin: 0 5px;" href="?do=next">Next step</a>
+                <a class="pull-right btn btn-info" style="margin: 0 5px;" href="?do=new">New creature</a>
+                <a class="pull-right btn btn-danger" style="margin: 0 5px;" href="?do=reset">Reset</a>
+                {% endblock %}
+                <h3>The virtual ZooBox</h3>
+            </div>
+            {% block main_content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

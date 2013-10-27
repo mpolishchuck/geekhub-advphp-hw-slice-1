@@ -1,0 +1,17 @@
+{% extends "layout_main.html.twig" %}
+{% block main_content %}
+{% for item in zoobox %}
+<div class="col-lg-6 zoobox-item">
+    <div class="zoobox-item-content">
+        <div class="zoobox-creature-icon {{ item.getDisplayIconClass() }} pull-left"></div>
+        <div><strong>{{ item.getDisplayName() }}</strong></div>
+        <div>
+        {% for indicator in item.getCurrentStatus() %}
+            <span>{{ indicator[0] }}: {{ indicator[1]|number_format(2) }}</span>
+        {% endfor %}
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
