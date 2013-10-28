@@ -1,19 +1,19 @@
 <?php
 
-namespace Home;
+namespace PaulMaxwell\SimulatorBasis\Vacuum;
 
-use Nature\Creatures\AbstractPetCreature;
+use PaulMaxwell\SimulatorBasis\Nature\Creatures\AbstractLiveCreature;
 
 /**
- * Class SphericalCat
- * @package Home
+ * Class SphericalHorse
+ * @package Vacuum
  *
- * Implementation of spherical home pet called 'Cat'
+ * Implementation of spherical horse in the vacuum
  */
-class SphericalCat extends AbstractPetCreature
+class SphericalHorse extends AbstractLiveCreature
 {
     /**
-     * Changing health of spherical cat in 'active' state
+     * Changing health of spherical horse in 'active' state
      */
     protected function thinkHealthActive()
     {
@@ -32,7 +32,7 @@ class SphericalCat extends AbstractPetCreature
     }
 
     /**
-     * Changing health of spherical cat in 'sleeping' state
+     * Changing health of spherical horse in 'sleeping' state
      */
     protected function thinkHealthSleeping()
     {
@@ -51,29 +51,31 @@ class SphericalCat extends AbstractPetCreature
     }
 
     /**
-     * Spherical cat consumes bellyful in 'active' state
-     * @return float
+     * Spherical horse consumes bellyful in 'active' state
+     * @return float amount of bellyful consumed
      */
     protected function consumeBellyfulActive()
     {
         $diff = $this->bellyful / 25;
         $this->bellyful -= $diff;
+
         return $diff;
     }
 
     /**
-     * Spherical cat consumes bellyful in 'sleeping' state
+     * Spherical horse consumes bellyful in 'sleeping' state
      * @return float amount of bellyful consumed
      */
     protected function consumeBellyfulSleeping()
     {
         $diff = $this->bellyful / 50;
         $this->bellyful -= $diff;
+
         return $diff;
     }
 
     /**
-     * By consumed bellyful health and energy of spherical cat changes in 'active' state
+     * By consumed bellyful health and energy of spherical horse changes in 'active' state
      * @param float $consumedBellyful
      */
     protected function changeHealthAndEnergyActive($consumedBellyful)
@@ -84,31 +86,13 @@ class SphericalCat extends AbstractPetCreature
     }
 
     /**
-     * By consumed bellyful health and energy of spherical cat changes in 'sleeping' state
-     * @param $consumedBellyful
+     * By consumed bellyful health and energy of spherical horse changes in 'sleeping' state
+     * @param float $consumedBellyful
      */
     protected function changeHealthAndEnergySleeping($consumedBellyful)
     {
         $energy = 0.5 * $consumedBellyful;
         $this->energy += $energy;
         $this->health += min($consumedBellyful * $energy, 100 - $this->health);
-    }
-
-    /**
-     * Changes mood and energy when spherical cat playing
-     */
-    protected function changeMoodAndEnergyPlaying()
-    {
-        $energy_diff = $this->energy / 10;
-        $this->energy -= $energy_diff;
-        $this->mood += $energy_diff * 1.5;
-    }
-
-    /**
-     * Changes mood and energy when spherical cat idle
-     */
-    protected function changeMoodAndEnergyIdle()
-    {
-        $this->mood -= (100 - $this->energy) / 10;
     }
 }

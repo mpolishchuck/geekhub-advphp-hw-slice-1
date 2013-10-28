@@ -1,6 +1,6 @@
 <?php
 
-namespace Universe;
+namespace PaulMaxwell\SimulatorBasis\Universe;
 
 /**
  * Interface ThingInterface

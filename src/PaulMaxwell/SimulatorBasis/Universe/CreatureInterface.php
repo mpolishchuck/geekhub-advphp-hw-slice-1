@@ -1,6 +1,7 @@
 <?php
 
-namespace Universe;
+namespace PaulMaxwell\SimulatorBasis\Universe;
+use PaulMaxwell\SimulatorBasis\Universe\LifeFormInterface;
 
 /**
  * Interface CreatureInterface

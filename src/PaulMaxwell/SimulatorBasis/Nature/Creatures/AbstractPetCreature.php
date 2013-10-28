@@ -1,8 +1,9 @@
 <?php
 
-namespace Nature\Creatures;
+namespace PaulMaxwell\SimulatorBasis\Nature\Creatures;
 
-use Home\PetInterface;
+use PaulMaxwell\SimulatorBasis\Home\PetInterface;
+use PaulMaxwell\SimulatorBasis\Nature\Creatures\AbstractLiveCreature;
 
 /**
  * Class AbstractPetCreature

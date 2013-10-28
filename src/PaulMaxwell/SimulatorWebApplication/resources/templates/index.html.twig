@@ -1,0 +1,27 @@
+{% extends "layout_main.html.twig" %}
+{% block main_content %}
+{% for item in zoobox %}
+<div class="col-lg-6 zoobox-item">
+    <div class="zoobox-item-content">
+        <div class="zoobox-creature-icon {{ item.getDisplayIconClass() }} pull-left"></div>
+        <div><strong>{{ item.getDisplayName() }}</strong></div>
+        <div>
+        {% for indicator in item.getCurrentStatus() %}
+            <span>{{ indicator[0] }}: {{ indicator[1]|number_format(2) }}</span>
+        {% endfor %}
+        </div>
+        <div>
+            <small>{{ item.getStateStatus() }}</small>
+            {% for link in item.getActionLinks %}
+            <span><a href="{{ link[1] }}">{{ link[0] }}</a></span>
+            {% endfor %}
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+{% else %}
+<div class="col-lg-12">
+    There is no creatures in your ZooBox.
+</div>
+{% endfor %}
+{% endblock %}

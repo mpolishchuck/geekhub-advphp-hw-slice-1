@@ -1,9 +1,9 @@
 <?php
 
-namespace Nature\Creatures;
+namespace PaulMaxwell\SimulatorBasis\Nature\Creatures;
 
-use Universe\CreatureInterface;
-use Universe\ThingInterface;
+use PaulMaxwell\SimulatorBasis\Universe\CreatureInterface;
+use PaulMaxwell\SimulatorBasis\Universe\ThingInterface;
 
 /**
  * Class AbstractLiveCreature
