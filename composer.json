@@ -6,6 +6,8 @@
     },
     "require": {
         "symfony/http-foundation": "v2.3.6",
-        "twig/twig": "v1.14.1"
+        "twig/twig": "v1.14.1",
+        "symfony/form": "v2.3.6",
+        "symfony/twig-bridge": "v2.3.6"
     }
 }

@@ -1,0 +1,26 @@
+.zoobox-item {
+    padding: 5px;
+}
+
+.zoobox-item .zoobox-item-content {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.zoobox-item .zoobox-item-content .zoobox-creature-icon {
+    display: inline-block;
+    height: 64px;
+    width: 64px;
+}
+
+.zoobox-item .zoobox-item-content .zoobox-creature-icon.spherical-horse {
+    background: url(../images/spherical_horse.png);
+}
+
+.zoobox-item .zoobox-item-content .zoobox-creature-icon.cat {
+    background: url(../images/cat.png);
+}
+
+.zoobox-item .zoobox-item-content .zoobox-creature-icon.death {
+    background: url(../images/death.png);
+}
