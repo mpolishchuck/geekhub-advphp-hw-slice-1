@@ -4,6 +4,10 @@ namespace PaulMaxwell\SimulatorWebApplication;
 
 use PaulMaxwell\SimulatorWebApplication\Basis\AbstractSingleton;
 use PaulMaxwell\SimulatorWebApplication\Controller\DefaultController;
+use Symfony\Bridge\Twig\Extension\FormExtension;
+use Symfony\Bridge\Twig\Form\TwigRenderer;
+use Symfony\Bridge\Twig\Form\TwigRendererEngine;
+use Symfony\Component\Form\Forms;
 use Symfony\Component\HttpFoundation\Request;
 use PaulMaxwell\SimulatorWebApplication\Basis\GetterAndSetterTrait;
 use Symfony\Component\HttpFoundation\Session\Session;
@@ -15,6 +19,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
  * @property \Symfony\Component\HttpFoundation\Request $request
  * @property \Twig_Environment $templateEngine
  * @property \Symfony\Component\HttpFoundation\Session\Session $session
+ * @property \Symfony\Component\Form\FormFactory $formFactory
  */
 class Application extends AbstractSingleton
 {
@@ -23,6 +28,7 @@ class Application extends AbstractSingleton
     private $_request = null;
     private $_templateEngine = null;
     private $_session = null;
+    private $_formFactory = null;
 
     public function run()
     {
@@ -45,8 +51,24 @@ class Application extends AbstractSingleton
     {
         if ($this->_templateEngine === null) {
             $this->_templateEngine = new \Twig_Environment(
-                new \Twig_Loader_Filesystem(__DIR__ . '/resources/templates/'),
-                array()
+                new \Twig_Loader_Filesystem(array(
+                    __DIR__ . '/resources/templates/',
+                )),
+                array(
+//                    'cache' => __DIR__ . '/runtime',
+                    'debug' => true,
+                )
+            );
+
+            $formRenderEngine = new TwigRendererEngine(array('form_div_layout.html.twig'));
+            $formRenderEngine->setEnvironment($this->_templateEngine);
+
+            $this->_templateEngine->addExtension(
+                new FormExtension(
+                    new TwigRenderer(
+                        $formRenderEngine
+                    )
+                )
             );
         }
 
@@ -61,5 +83,14 @@ class Application extends AbstractSingleton
         }
 
         return $this->_session;
+    }
+
+    public function getFormFactory()
+    {
+        if ($this->_formFactory === null) {
+            $this->_formFactory = Forms::createFormFactory();
+        }
+
+        return $this->_formFactory;
     }
 }
