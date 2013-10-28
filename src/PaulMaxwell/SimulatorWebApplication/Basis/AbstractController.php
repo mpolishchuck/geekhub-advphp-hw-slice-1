@@ -9,6 +9,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 abstract class AbstractController
 {
+    /**
+     * Run the controller
+     * Basically search and execute Action method
+     */
     public function run()
     {
         $do = Application::getInstance()->request->get('do', 'default');
@@ -19,6 +23,13 @@ abstract class AbstractController
         $this->$methodName();
     }
 
+    /**
+     * Render the template with parameters
+     * @param  string      $templateName
+     * @param  array       $templateParameters
+     * @param  bool        $returnOutput
+     * @return bool|string
+     */
     public function render($templateName, $templateParameters = array(), $returnOutput = false)
     {
         $templateName .= '.html.twig';
@@ -36,6 +47,7 @@ abstract class AbstractController
     }
 
     /**
+     * Create form builder to build forms
      * @param  string|\Symfony\Component\Form\Extension\Core\Type\FormType $type
      * @param  array                                                       $data
      * @return \Symfony\Component\Form\FormBuilderInterface

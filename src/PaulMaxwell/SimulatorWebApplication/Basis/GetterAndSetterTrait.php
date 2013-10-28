@@ -2,6 +2,12 @@
 
 namespace PaulMaxwell\SimulatorWebApplication\Basis;
 
+/**
+ * Class GetterAndSetterTrait
+ * @package PaulMaxwell\SimulatorWebApplication\Basis
+ *
+ * Magic methods for defining magic class properties
+ */
 trait GetterAndSetterTrait
 {
     public function __get($name)

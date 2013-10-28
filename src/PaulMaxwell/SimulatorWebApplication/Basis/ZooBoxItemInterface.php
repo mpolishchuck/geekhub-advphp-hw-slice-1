@@ -2,6 +2,13 @@
 
 namespace PaulMaxwell\SimulatorWebApplication\Basis;
 
+/**
+ * Class ZooBoxItemInterface
+ * @package PaulMaxwell\SimulatorWebApplication\Basis
+ *
+ * ZooBox item interface
+ * General object in the ZooBox
+ */
 interface ZooBoxItemInterface
 {
     /**

@@ -30,6 +30,9 @@ class Application extends AbstractSingleton
     private $_session = null;
     private $_formFactory = null;
 
+    /**
+     * Run the application
+     */
     public function run()
     {
         $this->session->start();
@@ -38,6 +41,10 @@ class Application extends AbstractSingleton
         $controller->run();
     }
 
+    /**
+     * Get HttpFoundation Request object
+     * @return \Symfony\Component\HttpFoundation\Request
+     */
     public function getRequest()
     {
         if ($this->_request === null) {
@@ -47,6 +54,10 @@ class Application extends AbstractSingleton
         return $this->_request;
     }
 
+    /**
+     * Get the Twig template engine
+     * @return \Twig_Environment
+     */
     public function getTemplateEngine()
     {
         if ($this->_templateEngine === null) {
@@ -75,6 +86,10 @@ class Application extends AbstractSingleton
         return $this->_templateEngine;
     }
 
+    /**
+     * Get the HttpFoundation Session object
+     * @return \Symfony\Component\HttpFoundation\Session\Session
+     */
     public function getSession()
     {
         if ($this->_session === null) {
@@ -85,6 +100,10 @@ class Application extends AbstractSingleton
         return $this->_session;
     }
 
+    /**
+     * Get the form factory
+     * @return \Symfony\Component\Form\FormFactoryInterface
+     */
     public function getFormFactory()
     {
         if ($this->_formFactory === null) {

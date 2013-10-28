@@ -28,6 +28,9 @@ class DefaultController extends AbstractController
         }
     }
 
+    /**
+     * Displays our ZooBox
+     */
     public function defaultAction()
     {
         $this->saveState();
@@ -36,6 +39,9 @@ class DefaultController extends AbstractController
         ));
     }
 
+    /**
+     * Resets our ZooBox (clearing the contents)
+     */
     public function resetAction()
     {
         $session = Application::getInstance()->session;
@@ -46,6 +52,9 @@ class DefaultController extends AbstractController
         $this->redirectToMain();
     }
 
+    /**
+     * Moves to next step of the simulation
+     */
     public function nextAction()
     {
         $this->zooBox->think();
@@ -54,6 +63,9 @@ class DefaultController extends AbstractController
         $this->redirectToMain();
     }
 
+    /**
+     * Creates new creature in out ZooBox
+     */
     public function newCreatureAction()
     {
         $form = $this->createFormBuilder(new NewCreatureFormType())
@@ -91,6 +103,9 @@ class DefaultController extends AbstractController
         ));
     }
 
+    /**
+     * Feeds the pet
+     */
     public function feedAction()
     {
         $id = Application::getInstance()->request->get('id', null);
@@ -106,6 +121,9 @@ class DefaultController extends AbstractController
         $this->redirectToMain();
     }
 
+    /**
+     * Initiates playing of the pet
+     */
     public function playAction()
     {
         $id = Application::getInstance()->request->get('id', null);
@@ -121,17 +139,28 @@ class DefaultController extends AbstractController
         $this->redirectToMain();
     }
 
+    /**
+     * Saves state of the ZooBox into session
+     */
     protected function saveState()
     {
         Application::getInstance()->session->set('serializedZooBox', serialize($this->zooBox));
     }
 
+    /**
+     * Redirects user to main page
+     */
     protected function redirectToMain()
     {
         $redirect = new RedirectResponse(Application::getInstance()->request->getBaseUrl() . '/');
         $redirect->send();
     }
 
+    /**
+     * Searches creature in out ZooBox
+     * @param  string $id
+     * @return \PaulMaxwell\SimulatorWebApplication\Basis\ZooBoxItemInterface|null
+     */
     protected function searchCreature($id)
     {
         return $this->zooBox->searchByMethodReturn('getId', $id);
