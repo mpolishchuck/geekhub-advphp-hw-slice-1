@@ -1,46 +1,58 @@
-geekhub-advphp-hw-2
+geekhub-advphp-hw-3
 ===================
 
 Overview
 --------
 
-Програма моделює процес життя живих істот. Виконується з CLI.
+The program simulates a life of live creatures. Executes as CLI and Web application.
 
-Реалізовано моделювання таких істот:
+Now is implemented these of live creatures:
 
- 1. Сферичний кінь в вакуумі
+ 1. Spherical horse in the vacuum
 
- 2. Сферичний кіт вдома (як домашня тварина)
+ 2. Spherical cat at home (as home pet)
 
-Запуск
+Installing
 ------
 
-Тестові програми знаходяться в каталозі **cli/**, їх потрібно запускати так:
+### Cloning the repository ###
+
+Repository clones with one simple command:
+
+~~~
+$ git clone git@github.com:paulmaxwell/geekhub-advphp-hw-slice-1.git
+~~~
+
+If you need to clone release version, just use:
+
+~~~
+$ git clone -b homework-3 git@github.com:paulmaxwell/geekhub-advphp-hw-slice-1.git
+~~~
+
+### Installing dependencies ###
+
+Just after cloning the repository install all of the dependencies via composer:
+
+~~~
+$ composer install
+~~~
+
+This command should be executed at the project root.
+
+Using
+------
+
+### Launch as CLI ###
+
+Test programs located in the **cli/** directory, they must be executed as:
 
 ~~~
 $ cd cli/
 $ php <program>.php
 ~~~
 
-Програма щосекунди виводить поточний стан істоти.
+Program shows life status in every second.
 
-Details
--------
+### Setting up web server ###
 
-### 1. Сферичний кінь в вакуумі ###
-
-Моделювання процесу життя "сферичного коня в вакуумі". Запуск:
-
-~~~
-$ cd cli/
-$ php demo1.php
-~~~
-
-### 2. Сферичний кіт вдома (як домашня тварина) ###
-
-Моделювання процесу життя "сферичного кота вдома". Запуск:
-
-~~~
-$ cd cli/
-$ php demo2.php
-~~~
+Just point server's DocumentRoot into directory **webroot/** and enjoy.
