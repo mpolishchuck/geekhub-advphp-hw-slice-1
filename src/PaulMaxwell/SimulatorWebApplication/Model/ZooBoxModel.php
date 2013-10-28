@@ -22,6 +22,19 @@ class ZooBoxModel
         $this->items[] = $item;
     }
 
+    public function searchByMethodReturn($method, $val)
+    {
+        foreach ($this->items as $item) {
+            if (method_exists($item, $method)) {
+                if ($item->$method() == $val) {
+                    return $item;
+                }
+            }
+        }
+
+        return null;
+    }
+
     public function think()
     {
         foreach ($this->items as $item) {

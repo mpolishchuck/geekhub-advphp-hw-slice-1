@@ -10,6 +10,12 @@
             <span>{{ indicator[0] }}: {{ indicator[1]|number_format(2) }}</span>
         {% endfor %}
         </div>
+        <div>
+            <small>{{ item.getStateStatus() }}</small>
+            {% for link in item.getActionLinks %}
+            <span><a href="{{ link[1] }}">{{ link[0] }}</a></span>
+            {% endfor %}
+        </div>
         <div class="clearfix"></div>
     </div>
 </div>

@@ -18,4 +18,14 @@ interface ZooBoxItemInterface
      * @return array
      */
     public function getCurrentStatus();
+
+    /**
+     * @return string
+     */
+    public function getStateStatus();
+
+    /**
+     * @return array
+     */
+    public function getActionLinks();
 }

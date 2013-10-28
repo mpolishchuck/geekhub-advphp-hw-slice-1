@@ -2,6 +2,7 @@
 
 namespace PaulMaxwell\SimulatorWebApplication\Controller;
 
+use PaulMaxwell\SimulatorBasis\Home\PetInterface;
 use PaulMaxwell\SimulatorWebApplication\Application;
 use PaulMaxwell\SimulatorWebApplication\Basis\AbstractController;
 use PaulMaxwell\SimulatorWebApplication\Form\NewCreatureFormType;
@@ -100,5 +101,40 @@ class DefaultController extends AbstractController
         $this->render('new', array(
             'form' => $form->createView(),
         ));
+    }
+
+    protected function searchCreature($id)
+    {
+        return $this->zooBox->searchByMethodReturn('getId', $id);
+    }
+
+    public function feedAction()
+    {
+        $id = Application::getInstance()->request->get('id', null);
+        $creature = $this->searchCreature($id);
+
+        if ($creature instanceof PetInterface) {
+            $creature->feed(30);
+        }
+
+        $this->zooBox->think();
+        $this->saveState();
+
+        $this->redirectToMain();
+    }
+
+    public function playAction()
+    {
+        $id = Application::getInstance()->request->get('id', null);
+        $creature = $this->searchCreature($id);
+
+        if ($creature instanceof PetInterface) {
+            $creature->play(5);
+        }
+
+        $this->zooBox->think();
+        $this->saveState();
+
+        $this->redirectToMain();
     }
 }
