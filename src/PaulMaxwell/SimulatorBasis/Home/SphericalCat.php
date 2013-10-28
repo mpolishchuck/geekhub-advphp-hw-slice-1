@@ -58,6 +58,7 @@ class SphericalCat extends AbstractPetCreature
     {
         $diff = $this->bellyful / 25;
         $this->bellyful -= $diff;
+
         return $diff;
     }
 
@@ -69,6 +70,7 @@ class SphericalCat extends AbstractPetCreature
     {
         $diff = $this->bellyful / 50;
         $this->bellyful -= $diff;
+
         return $diff;
     }
 

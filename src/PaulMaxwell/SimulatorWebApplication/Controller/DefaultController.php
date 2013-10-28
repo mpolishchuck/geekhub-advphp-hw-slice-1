@@ -6,7 +6,6 @@ use PaulMaxwell\SimulatorBasis\Home\PetInterface;
 use PaulMaxwell\SimulatorWebApplication\Application;
 use PaulMaxwell\SimulatorWebApplication\Basis\AbstractController;
 use PaulMaxwell\SimulatorWebApplication\Form\NewCreatureFormType;
-use PaulMaxwell\SimulatorWebApplication\Model\ZooBoxItem\Cat;
 use PaulMaxwell\SimulatorWebApplication\Model\ZooBoxItem\SphericalHorse;
 use PaulMaxwell\SimulatorWebApplication\Model\ZooBoxModel;
 use Symfony\Component\Form\FormError;

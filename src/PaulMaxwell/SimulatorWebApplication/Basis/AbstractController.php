@@ -36,14 +36,15 @@ abstract class AbstractController
     }
 
     /**
-     * @param string|\Symfony\Component\Form\Extension\Core\Type\FormType $type
-     * @param array $data
+     * @param  string|\Symfony\Component\Form\Extension\Core\Type\FormType $type
+     * @param  array                                                       $data
      * @return \Symfony\Component\Form\FormBuilderInterface
      */
     public function createFormBuilder($type = 'form', $data = array())
     {
         $formBuilder = Application::getInstance()->getFormFactory()->createBuilder($type, $data);
         $formBuilder->setRequestHandler(new HttpFoundationRequestHandler());
+
         return $formBuilder;
     }
 }

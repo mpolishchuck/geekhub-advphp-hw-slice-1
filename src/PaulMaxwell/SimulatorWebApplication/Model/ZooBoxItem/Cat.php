@@ -69,6 +69,7 @@ class Cat extends SphericalCat implements ZooBoxItemInterface
             }
             $links[] = array('Feed', '?do=feed&id='.$this->getId());
         }
+
         return $links;
     }
 }
