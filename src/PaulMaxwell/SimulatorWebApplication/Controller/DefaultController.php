@@ -28,17 +28,6 @@ class DefaultController extends AbstractController
         }
     }
 
-    protected function saveState()
-    {
-        Application::getInstance()->session->set('serializedZooBox', serialize($this->zooBox));
-    }
-
-    protected function redirectToMain()
-    {
-        $redirect = new RedirectResponse(Application::getInstance()->request->getBaseUrl() . '/');
-        $redirect->send();
-    }
-
     public function defaultAction()
     {
         $this->saveState();
@@ -102,11 +91,6 @@ class DefaultController extends AbstractController
         ));
     }
 
-    protected function searchCreature($id)
-    {
-        return $this->zooBox->searchByMethodReturn('getId', $id);
-    }
-
     public function feedAction()
     {
         $id = Application::getInstance()->request->get('id', null);
@@ -135,5 +119,21 @@ class DefaultController extends AbstractController
         $this->saveState();
 
         $this->redirectToMain();
+    }
+
+    protected function saveState()
+    {
+        Application::getInstance()->session->set('serializedZooBox', serialize($this->zooBox));
+    }
+
+    protected function redirectToMain()
+    {
+        $redirect = new RedirectResponse(Application::getInstance()->request->getBaseUrl() . '/');
+        $redirect->send();
+    }
+
+    protected function searchCreature($id)
+    {
+        return $this->zooBox->searchByMethodReturn('getId', $id);
     }
 }
